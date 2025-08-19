@@ -1,0 +1,154 @@
+/* ---- base ---- */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #ffb6f0, #a17cff, #ffd86b);
+  background-size: 400% 400%;
+  animation: gradientBG 18s ease infinite;
+  overflow: hidden;
+}
+
+/* animated gradient background */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* sparkles overlay */
+.sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 80% 40%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 30% 80%, rgba(255,255,255,0.8), rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 50% 20%, rgba(255,255,255,0.8), rgba(255,255,255,0));
+  animation: twinkle 4s linear infinite;
+  opacity: 0.8;
+}
+@keyframes twinkle {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+}
+
+/* layout */
+.container {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4vw + 1rem, 4rem);
+  line-height: 1.1;
+  margin: 0 0 12px;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.75), 0 0 28px rgba(255, 105, 180, 0.6);
+}
+.title span { color: #ffeb3b; }
+
+.buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #ff69b4;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 105, 180, 0.45);
+  transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(255,105,180,.6); }
+.btn:active { transform: translateY(0); }
+.btn.secondary { background: #6a5acd; box-shadow: 0 8px 24px rgba(106,90,205,0.45); }
+.btn.secondary:hover { box-shadow: 0 10px 28px rgba(106,90,205,.6); }
+
+.hidden { display: none !important; }
+
+.cake {
+  font-size: clamp(3rem, 8vw, 5rem);
+  margin-top: 10px;
+  animation: bounce 2s infinite;
+  text-shadow: 0 0 10px rgba(255,255,255,.6);
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+/* confetti canvas */
+#confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* modal overlay & card */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px);
+  z-index: 3;
+}
+
+.card {
+  width: min(90vw, 540px);
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  transform: translateY(20px);
+  animation: cardIn .5s ease forwards;
+}
+@keyframes cardIn {
+  to { transform: translateY(0); opacity: 1; }
+}
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+.card p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.close:hover { background: rgba(0,0,0,0.5); }
