@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Akansha 🎉</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- sparkle overlay -->
+  <div class="sparkles" aria-hidden="true"></div>
+
+  <main class="container">
+    <h1 class="title">Happy Birthday <span>Akansha</span> 🎉</h1>
+
+    <div class="buttons">
+      <button id="play-btn" class="btn">Play Music 🎵</button>
+      <button id="msg-btn" class="btn secondary hidden">Show Special Message 💌</button>
+    </div>
+
+    <!-- subtle cake emoji, can remove if you want -->
+    <div class="cake" aria-hidden="true">🎂</div>
+  </main>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <!-- Your audio file goes here; place mp3 at: /audio/birthday_music.mp3 -->
+  <audio id="bg-music" src="audio/birthday_music.mp3" preload="none"></audio>
+
+  <!-- Pop-up special message -->
+  <div id="overlay" class="overlay hidden">
+    <div class="card">
+      <button class="close" id="close-card" aria-label="Close">✕</button>
+      <h2>🌸 Friendship Forever 🌸</h2>
+      <p>
+        Some bonds never fade, no matter the distance or silence.<br/>
+        True friends stay in the heart always.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
