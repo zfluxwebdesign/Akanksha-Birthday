@@ -20,7 +20,7 @@ playBtn.addEventListener("click", async () => {
     msgBtn.classList.remove("hidden"); // reveal second button
   } catch (e) {
     // If the file is missing or browser blocks on first tap
-    playBtn.textContent = "Tap Again to Play 🎵 (add audio/birthday_music.mp3)";
+    playBtn.textContent = "Tap Again to Play 🎵 (add audio/happy-birthday-122428.mp3)";
     console.log("Audio play error:", e);
   }
 });
