@@ -73,6 +73,11 @@ function draw() {
   update();
   requestAnimationFrame(draw);
 }
+function playMusic() {
+  const music = document.getElementById("myMusic");
+  music.play();
+}
+
 
 function update() {
   confetti.forEach(p => {
